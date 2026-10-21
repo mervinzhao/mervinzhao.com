@@ -33,7 +33,7 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 | `npm run dev:private` | Private build preview on :8081 (uses `private.yaml`) |
 | `npm run build` | Build `dist/` |
 | `npm run check` | Leak check over `dist/` and every committable file |
-| `npm run photos` | Re-crop photos from `photos-original/` (crops in `src/assets/photos/photos.yaml`) |
+| `npm run photos` | Re-crop photos from `photos-original/` (crops in `src/assets/photos/photos.yaml`). `npm run photos -- hero` redoes one entry. |
 | `node scripts/seal.mjs` | Rebuild the 墨文 seal from `photos-original/seal-reference.webp` |
 | `node scripts/logos.mjs` | Re-fetch org logos from official sources |
 

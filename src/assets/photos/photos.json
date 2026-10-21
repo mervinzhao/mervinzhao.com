@@ -1,12 +1,14 @@
 {
   "hero": {
     "alt": "Long-exposure photo of a turquoise glacial river cascading over dark rock toward snowy hills at sunset",
-    "width": 1236,
-    "height": 1854,
+    "width": 2048,
+    "height": 3072,
     "widths": [
       412,
       824,
-      1236
+      1236,
+      1648,
+      2048
     ],
     "color": "#080818"
   },

@@ -2,12 +2,17 @@
 # which is gitignored). Outputs WebP + AVIF at each width, metadata stripped.
 # `aspect` is width/height of the slot; `focus` is the focal point in percent
 # (x, y) used to place the crop when the source aspect differs.
+# Optional `quality: { avif, webp }` overrides the defaults (52 and 78). The two
+# scales differ: AVIF 64 looks about like WebP 80.
 hero:
-  src: waterfall-original.jpg
+  src: 3 (1 of 1).jpg
   alt: Long-exposure photo of a turquoise glacial river cascading over dark rock toward snowy hills at sunset
   aspect: 0.6667   # 412 × 618
   focus: [50, 50]
-  widths: [412, 824, 1236]
+  # Long exposure: fine water and rock detail, so a 2048 px top size for 4K/5K panels
+  # and lighter compression (~500 KB at 2048).
+  widths: [412, 824, 1236, 1648, 2048]
+  quality: { avif: 75, webp: 85 }
 band:
   src: 1__1_of_1_.jpg
   alt: Long-exposure fog flowing over a forested ridge at dusk, with house lights glowing through

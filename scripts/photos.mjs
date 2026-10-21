@@ -1,16 +1,24 @@
 // Local only: photos-original/ → src/assets/photos/<name>-<w>.<format>.
 // sharp drops all metadata (EXIF, GPS, XMP) unless asked to keep it; check.mjs
 // verifies that. Writes photos.json with sizes and a placeholder color.
-import { readFileSync, writeFileSync } from 'node:fs';
+// `npm run photos -- hero` redoes only the named entries and keeps the rest of photos.json.
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
 import { parse } from 'yaml';
 import { fsPath } from './lib/content.mjs';
 
 const DIR = fsPath('src/assets/photos/');
 const config = parse(readFileSync(`${DIR}photos.yaml`, 'utf8'));
+const only = process.argv.slice(2);
+for (const name of only) if (!config[name]) throw new Error(`photos: no entry "${name}" in photos.yaml`);
+const prev = only.length && existsSync(`${DIR}photos.json`) ? JSON.parse(readFileSync(`${DIR}photos.json`, 'utf8')) : {};
 const manifest = {};
 
 for (const [name, p] of Object.entries(config)) {
+  if (only.length && !only.includes(name)) {
+    if (prev[name]) manifest[name] = prev[name];
+    continue;
+  }
   const src = sharp(fsPath(`photos-original/${p.src}`)).rotate();
   const { width: W, height: H } = await src.metadata();
 
@@ -29,8 +37,8 @@ for (const [name, p] of Object.entries(config)) {
   const hex = '#' + [dominant.r, dominant.g, dominant.b].map((c) => c.toString(16).padStart(2, '0')).join('');
 
   const encode = {
-    webp: (img) => img.webp({ quality: 78, effort: 6 }),
-    avif: (img) => img.avif({ quality: 52, effort: 6 }),
+    webp: (img) => img.webp({ quality: p.quality?.webp ?? 78, effort: 6 }),
+    avif: (img) => img.avif({ quality: p.quality?.avif ?? 52, effort: 6 }),
     jpg: (img) => img.jpeg({ quality: 80, mozjpeg: true }),
   };
   for (const w of p.widths) {
