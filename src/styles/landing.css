@@ -58,6 +58,12 @@ section:last-of-type { padding-bottom: 40px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .chips li { font-size: 13px; padding: 7px 13px; border: 1px solid #CFC9BF; border-radius: 999px; }
 
+/* Happy to talk about */
+.talk li { padding: 12px 0 12px 22px; border-top: 1px solid var(--rule); font-size: 16px; line-height: 1.4; position: relative; }
+.talk li::before { content: ''; position: absolute; left: 0; top: 21px; width: 10px; height: 2px; background: var(--accent); }
+.talk-cta { padding-top: 14px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted-light); }
+.talk-cta a { white-space: nowrap; color: var(--ink); font-weight: 600; text-underline-offset: 4px; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+
 /* Experience and education entries */
 .entry { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-top: 1px solid var(--rule); }
 .tile {

@@ -1,0 +1,8 @@
+{% from "_macros.njk" import photo, entry %}
+{% set p = cv.person %}
+<section aria-labelledby="h-edu">
+  <div class="h2"><h2 id="h-edu">Education</h2></div>
+  <ul>
+    {% for e in cv.education %}{{ entry(cv, e, e.degree) }}{% endfor %}
+  </ul>
+</section>

@@ -48,45 +48,9 @@
 </div>
 
 <main>
-<section class="about" aria-labelledby="h-about">
-  <div class="h2"><h2 id="h-about">About</h2></div>
-  <div class="intro">
-    {{ photo('portrait', root, '(min-width: 960px) 96px, 72px', false, 'portrait') }}
-    <p class="lead">{{ cv.about.lead }}</p>
-  </div>
-  <p class="body">{{ cv.about.body }}</p>
-  <ul class="chips">{% for f in cv.about.focus %}<li>{{ f }}</li>{% endfor %}</ul>
-</section>
-
-<section aria-labelledby="h-exp">
-  <div class="h2"><h2 id="h-exp">Experience</h2></div>
-  <ul>
-    {% for e in cv.experience %}{{ entry(cv, e, e.role, accent=(loop.first and not e.end and theme['brand-accent-logo'])) }}{% endfor %}
-  </ul>
-</section>
-
-<section aria-labelledby="h-edu">
-  <div class="h2"><h2 id="h-edu">Education</h2></div>
-  <ul>
-    {% for e in cv.education %}{{ entry(cv, e, e.degree) }}{% endfor %}
-  </ul>
-</section>
-
-<section aria-labelledby="h-pubs">
-  <div class="h2"><h2 id="h-pubs">Selected publications</h2></div>
-  <ul>
-    {% for pub in cv.publications %}{% if pub.selected %}
-    <li class="pub">
-      <span class="pub-title">{{ pub.title }}</span>
-      <span class="pub-meta">{{ authorsShort(pub.authors) }} <em>{{ pub.venue }}</em> ({{ pub.year }})</span>
-    </li>
-    {% endif %}{% endfor %}
-  </ul>
-  <div class="pubs-foot">
-    <span>{{ cv.publications.length }} publications, {{ cv.patents.length }} patents</span>
-    <a href="{{ p.links.scholar }}">Google Scholar</a>
-  </div>
-</section>
+{# Section order comes from site.sections in content/cv.yaml. #}
+{% for name in cv.site.sections %}{% include "sections/" + name + ".njk" %}
+{% endfor %}
 </main>
 
 <footer>

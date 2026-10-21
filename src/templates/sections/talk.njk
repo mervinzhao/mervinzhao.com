@@ -1,0 +1,9 @@
+{% from "_macros.njk" import photo, entry %}
+{% set p = cv.person %}
+{% if cv.about.talk %}
+<section class="talk" aria-labelledby="h-talk">
+  <div class="h2"><h2 id="h-talk">Happy to talk about</h2></div>
+  <ul>{% for t in cv.about.talk %}<li>{{ t }}</li>{% endfor %}</ul>
+  {% if cv.about.talk_cta %}<p class="talk-cta">{{ cv.about.talk_cta }} <a href="mailto:{{ p.email.work }}">Email me</a></p>{% endif %}
+</section>
+{% endif %}

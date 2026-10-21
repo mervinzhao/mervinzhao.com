@@ -1,0 +1,17 @@
+{% from "_macros.njk" import photo, entry %}
+{% set p = cv.person %}
+<section aria-labelledby="h-pubs">
+  <div class="h2"><h2 id="h-pubs">Selected publications</h2></div>
+  <ul>
+    {% for pub in cv.publications %}{% if pub.selected %}
+    <li class="pub">
+      <span class="pub-title">{{ pub.title }}</span>
+      <span class="pub-meta">{{ authorsShort(pub.authors) }} <em>{{ pub.venue }}</em> ({{ pub.year }})</span>
+    </li>
+    {% endif %}{% endfor %}
+  </ul>
+  <div class="pubs-foot">
+    <span>{{ cv.publications.length }} publications, {{ cv.patents.length }} patents</span>
+    <a href="{{ p.links.scholar }}">Google Scholar</a>
+  </div>
+</section>

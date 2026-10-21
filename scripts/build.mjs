@@ -37,7 +37,10 @@ mkdirSync(OUT, { recursive: true });
 
 // Fonts, subset to every character the content or templates can render.
 await ensureFonts();
-const templateText = readdirSync(fsPath('src/templates/')).map((f) => read(`src/templates/${f}`)).join('');
+const templateText = readdirSync(fsPath('src/templates/'), { recursive: true })
+  .filter((f) => f.endsWith('.njk'))
+  .map((f) => read(`src/templates/${f.replaceAll('\\', '/')}`))
+  .join('');
 const fontCss = await subsetFonts(JSON.stringify(cv) + templateText, `${OUT}fonts/`, 'fonts/');
 
 // Photos: derived files only.

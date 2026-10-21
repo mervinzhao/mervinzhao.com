@@ -1,0 +1,11 @@
+{% from "_macros.njk" import photo, entry %}
+{% set p = cv.person %}
+<section class="about" aria-labelledby="h-about">
+  <div class="h2"><h2 id="h-about">About</h2></div>
+  <div class="intro">
+    {{ photo('portrait', root, '(min-width: 960px) 96px, 72px', false, 'portrait') }}
+    <p class="lead">{{ cv.about.lead }}</p>
+  </div>
+  <p class="body">{{ cv.about.body }}</p>
+  <ul class="chips">{% for f in cv.about.focus %}<li>{{ f }}</li>{% endfor %}</ul>
+</section>
