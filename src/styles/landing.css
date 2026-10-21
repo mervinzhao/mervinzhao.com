@@ -34,7 +34,7 @@ a { color: inherit; }
 /* Headshot above the name, ringed so it separates from the landscape. */
 .hero-id { display: flex; flex-direction: column; gap: 16px; }
 .portrait, .portrait img { display: block; width: 64px; height: 64px; flex: none; border-radius: 50%; object-fit: cover; }
-.hero .portrait { border: 2px solid rgba(236,232,226,0.85); }
+.hero .portrait img { box-shadow: 0 0 0 2px rgba(236,232,226,0.85); }
 
 /* Actions */
 .actions { background: var(--ink); padding: 20px 24px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -125,17 +125,26 @@ footer .btn { height: 52px; font-size: 15px; }
   .actions { padding: 20px 40px 32px; }
 
   main, footer { grid-column: 2; }
-  main { width: 100%; max-width: 820px; padding: 24px clamp(40px, 6vw, 96px) 16px; }
+  main { width: 100%; max-width: 1120px; padding: 24px clamp(40px, 6vw, 96px) 16px; }
   section { padding: 48px 0 8px; }
   section:last-of-type { padding-bottom: 48px; }
   .entry { gap: 18px; padding: 20px 0; }
-  .entry-detail { display: block; margin-top: 8px; font-size: 14px; line-height: 1.55; color: #3A3936; max-width: 64ch; }
+  .entry-detail { display: block; margin-top: 8px; font-size: 14px; line-height: 1.55; color: #3A3936; max-width: 90ch; }
   .entry-detail ul { list-style: disc; padding-left: 18px; margin-top: 6px; }
   .entry-detail li + li { margin-top: 4px; }
   .entry-detail li::marker { color: var(--muted-light); }
 
   footer { padding: 40px clamp(40px, 6vw, 96px) 48px; }
   footer .btn { max-width: 320px; }
+}
+
+/* Wide desktops: the column grows, so the type steps up to keep lines a readable length. */
+@media (min-width: 1600px) {
+  .talk li { font-size: 17px; }
+  .entry-name { font-size: 17px; }
+  .entry-role, .entry-detail { font-size: 15px; }
+  .pub-title { font-size: 16px; }
+  .pub-meta { font-size: 14px; }
 }
 
 /* Short desktop windows: too little height to pin the panel without clipping it. */
