@@ -1,0 +1,37 @@
+# Design tokens. Read by the site build (emitted as CSS custom properties)
+# and by the Typst CV. Switch themes by changing `active`.
+active: renphil
+
+themes:
+  renphil:
+    color:
+      ink: "#131318"          # primary dark, text on light
+      accent: "#F87248"       # coral from the RenPhil mark. ~6.6:1 on ink; ~2.8:1 on white: accents/large type only on light
+      paper: "#F6F4F0"        # light page surface
+      offwhite: "#F4F1EC"     # text on dark
+      muted-dark: "#A7A4A0"   # secondary text on dark
+      muted-light: "#5C5A57"  # secondary text on light
+      rule: "#DDD8D0"
+      surface-dark: "#26262E"
+      outer: "#0C0C10"        # page background around the column
+    # Show the RenPhil mark in accent (true) or ink (false) on the current role.
+    brand-accent-logo: true
+
+  plain:
+    color:
+      ink: "#131318"
+      accent: "#7FB3C8"
+      paper: "#F6F4F0"
+      offwhite: "#F4F1EC"
+      muted-dark: "#A7A4A0"
+      muted-light: "#5C5A57"
+      rule: "#DDD8D0"
+      surface-dark: "#26262E"
+      outer: "#0C0C10"
+    brand-accent-logo: false
+
+font:
+  latin: Hanken Grotesk
+  ja: Shippori Mincho
+  zh: Noto Sans SC
+  ruby: Zen Kaku Gothic New

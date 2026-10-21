@@ -1,0 +1,19 @@
+# Private material: never commit
+photos-original/
+content/private.yaml
+dist-private/
+
+# Handoff notes name an unannounced program; keep out of the public repo
+HANDOFF.md
+
+# Build output and caches
+dist/
+.cache/
+node_modules/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

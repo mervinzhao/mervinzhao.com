@@ -1,0 +1,273 @@
+# Single source of truth for the landing page, the card, the vCard and the PDF.
+# Public: everything here ships. Phone and personal Gmail belong in private.yaml.
+#
+# Dates are "YYYY" or "YYYY-MM". Omit `end` for a current role.
+# private.yaml merges list entries by `org`; any list it sets inside an entry replaces the public one.
+# Affiliation `logo` is optional: delete it and the tile falls back to `short`.
+
+person:
+  name: Mervin Zhao
+  honorific: PhD
+  given: Mervin
+  family: Zhao
+  ja:
+    # Family-first, with readings rendered as ruby.
+    - { text: 趙, ruby: ジャオ }
+    - { text: 墨文, ruby: モーウェン }
+  ja_phonetic: { family: ジャオ, given: モーウェン }
+  zh: 赵墨文
+  title: Assistant Director, ASCENT Program
+  org: renphil
+  url: https://mervinzhao.com/
+  email:
+    work: mervin.zhao@renphil.org
+    home: mervin.zhao@proton.me
+  links:
+    linkedin: https://www.linkedin.com/in/mervinzhao/
+    scholar: https://scholar.google.com/citations?user=qQMuu7QAAAAJ
+
+about:
+  # Placeholder copy. Mervin will rewrite.
+  lead: >-
+    I evaluate emerging technology in industrial sectors and advanced energy
+    systems, and help design the programs that fund it.
+  body: >-
+    Five years of start-up experience, including leading global R&D at 4C Air,
+    followed by technical advisory work for ARPA-E and the venture community.
+    Trained in applied physics and materials science at UC Berkeley.
+  summary: >-
+    Proven track record of evaluating emerging technology trends in industrial
+    sectors and advanced energy systems. Extensive network within the venture
+    and start-up communities through 5 years of start-up experience and
+    technical advisory roles. Experienced in managing global R&D teams and
+    pitching strategic innovation programs to leadership.
+  focus:
+    - Critical minerals
+    - Geologic hydrogen
+    - AI for materials science
+    - Advanced materials and manufacturing
+    - ARPA-model program design
+
+affiliations:
+  renphil:
+    name: Renaissance Philanthropy
+    short: RP
+    logo: renphil
+    url: https://www.renphil.org/
+  bah:
+    name: Booz Allen Hamilton
+    short: BAH
+    logo: bah
+    url: https://www.boozallen.com/
+  spectech:
+    name: Speculative Technologies
+    short: ST
+    logo: spectech
+    url: https://www.spec.tech/
+  newlab:
+    name: Newlab
+    short: NL
+    logo: newlab
+    url: https://www.newlab.com/
+  4cair:
+    name: 4C Air, Inc.
+    short: 4C
+    logo: 4cair
+  berkeley:
+    name: UC Berkeley
+    short: UCB
+    logo: berkeley
+    url: https://www.berkeley.edu/
+  cornell:
+    name: Cornell University
+    short: CU
+    logo: cornell
+    url: https://www.cornell.edu/
+
+experience:
+  - org: renphil
+    role: Principal SETA, Assistant Director (ASCENT Program)
+    start: "2026-09"
+    highlights:
+      - >-
+        Train and mentor technical staff supporting ASCENT (Japan-based) and
+        ARIA (UK) in ARPA-model program design, technical diligence, and
+        portfolio management.
+      - >-
+        Stand up the ASCENT program office, including portfolio tracking,
+        review workflows, reporting, and a reusable framework defining support
+        staff roles.
+      - >-
+        Standardize ARPA-model program assets for reuse across program areas,
+        and support proposal reviews and award negotiations.
+  - org: bah
+    role: Lead Engineer, Tech SETA at ARPA-E
+    start: "2023-02"
+    end: "2026-08"
+    summary: >-
+      Technical consulting for the U.S. Department of Energy to forecast and
+      guide future energy technologies.
+    highlights:
+      - >-
+        Scout and develop new program areas in critical minerals, geologic
+        hydrogen, AI for materials science, and advanced materials and
+        manufacturing.
+      - >-
+        Draft funding opportunities and requests for information documents to
+        set priorities for technology innovation, develop workshop programming
+        to engage industry networks, and assist in the negotiations of awarded
+        funds.
+      - >-
+        Provide active technical and commercialization project management for
+        advanced energy applications.
+  - org: spectech
+    role: Fellow
+    start: "2025-01"
+    end: "2025-05"
+    summary: >-
+      Develop and pitch a program surrounding synthetic conductors to replace
+      traditional metals.
+  - org: newlab
+    role: Technical Advisor
+    start: "2022-12"
+    end: "2025-01"
+    summary: >-
+      Provide materials science subject matter expertise for due diligence on
+      start-up technologies.
+  - org: 4cair
+    role: Director of Research and Development
+    start: "2017-11"
+    end: "2023-01"
+    summary: >-
+      Directly reported to the CEO and led global R&D efforts for nanofiber
+      technologies. Founded by Stanford University Professors Steven Chu and
+      Yi Cui.
+    highlights:
+      - Directed research spanning formulation, nanofiber processing, roll-to-roll production, and handling.
+      - >-
+        Managed product development, patents, competitor analysis, and
+        launches in personal respirators, HVAC media, waterproof membranes,
+        and biodegradable media.
+      - Developed and launched the world’s first biodegradable N95-level filtration material.
+      - Served as a subject matter expert on air filtration and lead author with the CDC and WHO for COVID.
+
+education:
+  - org: berkeley
+    degree: M.S., Ph.D., Applied Physics and Materials Science
+    detail: Designated Emphasis in Nanoscale Science and Engineering
+    start: "2012-06"
+    end: "2017-10"
+    summary: Graduate researcher advised by Prof. Xiang Zhang.
+    highlights:
+      - Nanomaterial semiconductor devices and emergent material physics
+      - National Science Foundation Graduate Research Fellow
+      - Materials Research Society Graduate Student Award
+      - Electronic Materials Symposium Ross Tucker Award
+      - Anselmo J. Macchi Fellowship Fund for Graduate Students in Engineering
+  - org: cornell
+    degree: B.A., Chemistry
+    start: "2008-08"
+    end: "2012-01"
+    highlights:
+      - Phi Beta Kappa Honor Society
+
+patents:
+  - authors: [M. Zhao, W. Xiao]
+    title: Biodegradable air filtering film and method for manufacturing same
+    number: US20230183473A1
+    year: 2021
+  - authors: [L. Liao, M. Zhao, Q. Wang, W. Xiao, H. Wang]
+    title: Breathable film and method for manufacturing same
+    number: US11203190B2
+    year: 2019
+  - authors: [X. Zhang, M. Zhao, Y. Ye]
+    title: Chemically assembled two-dimensional junctions
+    number: WO2018005838A1
+    year: 2017
+
+publications_blurb: >-
+  Multidisciplinary publications in fields of nanotechnology, filtration for
+  public health, and energy analysis.
+
+# Newest first. `selected: true` puts an entry on the landing page.
+publications:
+  - authors: [J. E. Greenwald, M. Zhao, D. A. Wicks]
+    title: Critical mineral demands may limit scaling of green hydrogen production
+    venue: Frontiers in Geochemistry
+    year: 2024
+    selected: true
+  - authors: [T. S. Lendvay, …, M. Zhao, …, M. C. Chu]
+    title: >-
+      Methylene blue and light inactivates severe acute respiratory coronavirus
+      virus 2 (SARS-CoV-2) on N95 respirators and medical masks with
+      maintenance of integrity and fit
+    venue: Infection Control & Hospital Epidemiology
+    year: 2022
+  - authors: [R. K. Campos, J. Jin, G. H. Rafael, M. Zhao, L. Liao, G. Simmons, S. Chu, S. C. Weaver, W. Chiu, Y. Cui]
+    title: >-
+      Decontamination of SARS-CoV-2 and other RNA viruses from N95 level
+      meltblown polypropylene fabric using heat under different humidities
+    venue: ACS Nano
+    year: 2020
+  - authors: [M. Zhao, L. Liao, W. Xiao, X. Yu, H. Wang, Q. Wang, Y. L. Lin, F. S. Kilinc-Balci, A. Price, L. Chu]
+    title: >-
+      Household materials selection for homemade cloth face coverings and their
+      filtration efficiency enhancement with triboelectric charging
+    venue: Nano Letters
+    year: 2020
+    selected: true
+  - authors: [L. Liao, W. Xiao, M. Zhao, X. Yu, H. Wang, Q. Wang, S. Chu, Y. Cui]
+    title: Can N95 respirators be reused after disinfection? How many times?
+    venue: ACS Nano
+    year: 2020
+  - authors: [A. Price, Y. Cui, L. Liao, W. Xiao, X. Yu, H. Wang, M. Zhao, Q. Wang, S. Chu, L. Chu]
+    title: >-
+      Is the fit of N95 facial masks effected by disinfection? A study of heat
+      and UV disinfection methods using the OSHA protocol fit test
+    venue: medRxiv
+    year: 2020
+  - authors: [S. Wang, M. Zhao, C. Zhang, S. Yang, Y. Wang, K. Watanabe, T. Taniguchi, J. Hone, X. Zhang]
+    title: Electron-hole hybridization in bilayer graphene
+    venue: National Science Review
+    year: 2020
+  - authors: [W. Bao, X. Liu, F. Xue, F. Zheng, R. Tao, S. Wang, Y. Xia, M. Zhao, J. Kim, S. Yang]
+    title: Observation of Rydberg exciton polaritons and their condensate in a perovskite cavity
+    venue: Proceedings of the National Academy of Sciences
+    year: 2019
+  - authors: [Y. Wan, J. Xiao, J. Li, X. Fang, K. Zhang, L. Fu, P. Li, Z. Song, H. Zhang, Y. Wang, M. Zhao, J. Lu, N. Tang, G. Ran, X. Zhang, Y. Ye, L. Dai]
+    title: Epitaxial single-layer MoS₂ on GaN with enhanced valley helicity
+    venue: Advanced Materials
+    year: 2018
+  - authors: [J. Xiao, M. Zhao, Y. Wang, X. Zhang]
+    title: Excitons in atomically thin 2D semiconductors and their applications
+    venue: Nanophotonics
+    year: 2017
+  - authors: [M. Zhao, Y. Ye, Y. Han, Y. Xia, H. Zhu, S. Wang, Y. Wang, D. A. Muller, X. Zhang]
+    title: Large-scale chemical assembly of atomically thin transistors and circuits
+    venue: Nature Nanotechnology
+    year: 2016
+    selected: true
+  - authors: [M. Zhao, Z. Ye, R. Suzuki, Y. Ye, H. Zhu, J. Xiao, Y. Wang, Y. Iwasa, X. Zhang]
+    title: Atomically phase-matched second-harmonic generation in a 2D crystal
+    venue: "Light: Science & Applications"
+    year: 2016
+  - authors: [Y. Ye, J. Xiao, H. Wang, Z. Ye, H. Zhu, M. Zhao, Y. Wang, J. Zhao, X. Yin, X. Zhang]
+    title: >-
+      Electrical generation and control of the valley carriers in a monolayer
+      transition metal dichalcogenide
+    venue: Nature Nanotechnology
+    year: 2016
+  - authors: [Y. Ye, Z. Ye, M. Gharghi, H. Zhu, M. Zhao, Y. Wang, X. Yin, X. Zhang]
+    title: Exciton-dominant electroluminescence from a diode of monolayer MoS₂
+    venue: Applied Physics Letters
+    year: 2014
+  - authors: [S. J. Tan, J. S. Kahn, T. L. Derrien, M. J. Campolongo, M. Zhao, D. Smilgies, D. Luo]
+    title: >-
+      Crystallization of DNA-capped gold nanoparticles in high-concentration,
+      divalent salt environments
+    venue: Angewandte Chemie
+    year: 2014
+  - authors: [M. J. Campolongo, S. J. Tan, D. M. Smilgies, M. Zhao, Y. Chen, I. Xhangolli, W. Cheng, D. Luo]
+    title: Crystalline Gibbs monolayers of DNA-capped nanoparticles at the air-liquid interface
+    venue: ACS Nano
+    year: 2011
