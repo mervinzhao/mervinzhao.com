@@ -29,40 +29,21 @@ person:
 # Landing page section order (files in src/templates/sections/).
 # The CV PDF has its own fixed order and shows everything.
 site:
-  sections: [about, experience, education, publications, talk]
+  sections: [talk, experience, education, publications]
 
 about:
-  # Draft. Mervin to review.
-  lead: >-
-    I work on what happens after the breakthrough: getting new materials and
-    energy technologies through manufacturing and scale-up, and designing the
-    programs that fund that work.
-  body: >-
-    I started at the lab bench, building atomically thin electronics for my
-    PhD at Berkeley. Then I spent five years turning nanofiber research into
-    products at 4C Air, from N95 filtration during COVID to the first
-    biodegradable N95-level material. Since then I’ve worked on the funding
-    side: scouting new program areas for ARPA-E, and now helping run ASCENT at
-    Renaissance Philanthropy.
   summary: >-
     Proven track record of evaluating emerging technology trends in industrial
     sectors and advanced energy systems. Extensive network within the venture
     and start-up communities through 5 years of start-up experience and
     technical advisory roles. Experienced in managing global R&D teams and
     pitching strategic innovation programs to leadership.
-  focus:
-    - Critical minerals
-    - Geologic hydrogen
-    - AI for materials science
-    - Advanced materials and manufacturing
-    - ARPA-model program design
-  # "Happy to talk about" list, shown after About.
+  # "Currently thinking about" list, the first landing section.
   talk:
-    - Taking new materials from the lab to manufacturing
-    - AI in materials R&D
-    - Fusion, superconductors and other long-shot technologies
-    - The history of industrial technology and R&D
-  talk_cta: Always up for a conversation about any of these.
+    - Technology through the lens of economics and geopolitics
+    - Scaling new material and energy systems
+    - Physical boundary conditions on new technologies
+    - Funding and innovation models for hard technology
 
 affiliations:
   renphil:
@@ -106,9 +87,9 @@ experience:
     start: "2026-09"
     highlights:
       - >-
-        Train and mentor technical staff supporting ASCENT (Japan-based) and
-        ARIA (UK) in ARPA-model program design, technical diligence, and
-        portfolio management.
+        Train and mentor technical staff supporting ASCENT (Japan-based) in
+        ARPA-model program design, technical diligence, and portfolio
+        management.
       - >-
         Stand up the ASCENT program office, including portfolio tracking,
         review workflows, reporting, and a reusable framework defining support

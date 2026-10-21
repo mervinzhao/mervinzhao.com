@@ -3,7 +3,7 @@
 {% set p = cv.person %}
 
 {% block head %}
-<meta name="description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}. {{ cv.about.lead }}">
+<meta name="description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}.">
 <link rel="canonical" href="{{ p.url }}">
 <link rel="icon" href="{{ root }}favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{{ root }}apple-touch-icon.png">
@@ -33,7 +33,10 @@
       </nav>
       {% endif %}
     </div>
-    {{ identity(cv) }}
+    <div class="hero-id">
+      {{ photo('portrait', root, '(min-width: 960px) 80px, 64px', false, 'portrait') }}
+      {{ identity(cv) }}
+    </div>
   </div>
 </header>
 

@@ -31,6 +31,10 @@ a { color: inherit; }
 .hero .id .cjk { color: #ECE8E2; }
 .hero .id .title { font-size: 16px; }
 .hero .id .org { font-size: 14px; color: #D6D2CC; }
+/* Headshot above the name, ringed so it separates from the landscape. */
+.hero-id { display: flex; flex-direction: column; gap: 16px; }
+.portrait, .portrait img { display: block; width: 64px; height: 64px; flex: none; border-radius: 50%; object-fit: cover; }
+.hero .portrait { border: 2px solid rgba(236,232,226,0.85); }
 
 /* Actions */
 .actions { background: var(--ink); padding: 20px 24px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -50,20 +54,10 @@ section:last-of-type { padding-bottom: 40px; }
 .h2 { display: flex; align-items: center; gap: 10px; }
 .h2::before { content: ''; width: 20px; height: 2px; background: var(--accent); }
 .h2 h2 { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
-.about { gap: 16px; }
-.intro { display: flex; align-items: flex-start; gap: 16px; }
-.portrait, .portrait img { display: block; width: 72px; height: 72px; flex: none; border-radius: 50%; object-fit: cover; }
-.lead { font-size: 20px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; }
-.body { font-size: 15px; line-height: 1.6; color: #3A3936; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-.chips li { font-size: 13px; padding: 7px 13px; border: 1px solid #CFC9BF; border-radius: 999px; }
 
-/* Happy to talk about */
+/* Currently thinking about */
 .talk li { padding: 12px 0 12px 22px; border-top: 1px solid var(--rule); font-size: 16px; line-height: 1.4; position: relative; }
 .talk li::before { content: ''; position: absolute; left: 0; top: 21px; width: 10px; height: 2px; background: var(--accent); }
-.talk-cta { padding-top: 14px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted-light); }
-.talk-cta a { white-space: nowrap; color: var(--ink); font-weight: 600; text-underline-offset: 4px; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
-
 /* Experience and education entries */
 .entry { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-top: 1px solid var(--rule); }
 .tile {
@@ -89,7 +83,6 @@ section:last-of-type { padding-bottom: 40px; }
 .pub-title { font-size: 15px; font-weight: 600; line-height: 1.4; }
 .pub-meta { font-size: 13px; line-height: 1.45; color: var(--muted-light); }
 .pubs-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; }
-.pubs-foot span { color: var(--muted-light); }
 .pubs-foot a { font-weight: 600; text-underline-offset: 4px; text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
 
 /* Footer */
@@ -127,8 +120,7 @@ footer .btn { height: 52px; font-size: 15px; }
   .btn-cv { display: flex; }
   .actions:not(:has(.btn-cv)) .btn-email + .btn { grid-column: 1 / -1; }
   .contact .vcf { display: inline; margin-top: 6px; color: var(--muted-dark); font-size: 13px; }
-  .portrait, .portrait img { width: 96px; height: 96px; }
-  .intro { gap: 24px; align-items: center; }
+  .portrait, .portrait img { width: 80px; height: 80px; }
   .seal { width: 26px; }
   .actions { padding: 20px 40px 32px; }
 
@@ -136,8 +128,6 @@ footer .btn { height: 52px; font-size: 15px; }
   main { width: 100%; max-width: 820px; padding: 24px clamp(40px, 6vw, 96px) 16px; }
   section { padding: 48px 0 8px; }
   section:last-of-type { padding-bottom: 48px; }
-  .lead { font-size: 24px; }
-  .body { font-size: 16px; max-width: 60ch; }
   .entry { gap: 18px; padding: 20px 0; }
   .entry-detail { display: block; margin-top: 8px; font-size: 14px; line-height: 1.55; color: #3A3936; max-width: 64ch; }
   .entry-detail ul { list-style: disc; padding-left: 18px; margin-top: 6px; }

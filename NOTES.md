@@ -1,6 +1,6 @@
 # Project notes
 
-Status and to-dos for mervinzhao.com. Last updated 2026-10-20.
+Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 
 ## Setting up on another machine
 
@@ -22,8 +22,8 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-20.
 
 - `main`: deploys to mervinzhao.com on every push (GitHub Actions → Pages).
 - `content-draft`: unapproved copy, not deployed. It contains:
-  - the new About lead and narrative
-  - the "Happy to talk about" section
+  - About section removed; the headshot moved into the hero above the name
+  - the "Currently thinking about" section, now first
   - section order set from `cv.yaml`
 
   To review it: `git checkout content-draft && npm run dev`. To ship it: merge into `main` and push.
@@ -60,9 +60,10 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-20.
 
 ## Open: content (in progress)
 
-- [ ] Review `content-draft`: About copy, section order, "Happy to talk about" topics.
-- [ ] Decide whether to keep the focus chips. They overlap with "Happy to talk about".
-- [ ] Confirm "helping run ASCENT" describes the role accurately.
+- [x] About section: dropped. Experience carries the specifics.
+- [ ] Review `content-draft`: hero headshot, section order.
+- [x] "Currently thinking about": four topics settled (was "Happy to talk about").
+- [x] Focus chips: dropped. They looked clickable but weren't links or tags.
 - [ ] Stories: optional 2–4 sentences per experience entry (`story:` field in `cv.yaml`). Draft prompts:
   - 4C Air: COVID masks with CDC/WHO; what made the biodegradable N95-level material hard.
   - Berkeley: the PhD in one plain sentence.
