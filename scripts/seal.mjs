@@ -58,8 +58,9 @@ for (let y = 0; y < H; y++) {
   }
 }
 
-// Outline mask (seal body with cut-outs filled), used to back the seal with
-// paper colour in the app icon so the characters read light on a dark tile.
+// Outline mask (seal body with cut-outs filled), for backing the seal with
+// paper colour so the characters read light on a dark ground. (The app icon
+// used it before it became the MZ monogram.)
 // The seal is convex, but 文's strokes break through its border, so take the
 // convex hull of the solid field (alpha ≥ 200, just inside the rough rim).
 const pts = [];

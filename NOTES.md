@@ -53,6 +53,7 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 - `/card/` app with URL and vCard QR toggle (v2 and v11), wake lock, offline, installable.
 - vCard download with Japanese phonetic name and photo.
 - Official org logos, 墨文 seal and headshot in the hero, fog photo for link previews.
+- Card app icon and favicon: MZ monogram with the coral rule.
 - Leak guard covering phone patterns, Gmail, private values, forbidden terms and image metadata.
 - Landing leads with "Currently thinking about" (five topics); no About section, focus chips, conversation line or publication count.
 
@@ -70,7 +71,8 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 ## Open: build
 
 - [ ] **CV PDF (Typst)** from `cv.yaml`: full detail, all publications and patents. The private build adds the private overlay. Once `cv.pdf` exists, the CV buttons appear automatically.
-- [ ] App icon: find the original seal file (on the desktop) and redo the seal and icon at full resolution. **Don't install the card on a phone until the icon is final.**
+- [x] App icon: now an MZ monogram outlined from Hanken Grotesk (`scripts/lib/icons.mjs`), also the site favicon. The installed app is named "Card" (full name "Mervin Zhao · Card", set in `cv.yaml` under `site.card_app`). Safe to install on a phone.
+- [ ] Seal (hero only now): find the original seal file (on the desktop) and redo it at full resolution.
 
 ## Open: email and testing
 

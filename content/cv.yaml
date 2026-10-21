@@ -30,6 +30,11 @@ person:
 # The CV PDF has its own fixed order and shows everything.
 site:
   sections: [talk, experience, education, publications]
+  # Installed card app: full name (install prompt, window title, Start menu)
+  # and the home-screen label, which launchers cut off at about 12 characters.
+  card_app:
+    name: Mervin Zhao · Card
+    short_name: Card
 
 about:
   summary: >-

@@ -56,11 +56,11 @@ await sharp(fsPath('src/assets/seal/seal.png')).resize({ width: 72 }).webp({ qua
 const vcardPhoto = readFileSync(fsPath('src/assets/photos/vcard-240.jpg'));
 writeFileSync(`${OUT}mervin-zhao.vcf`, vcard(cv, { variant: 'file', photo: vcardPhoto }));
 
-// Icons: the seal on an ink tile. Maskable art, also used as favicon and touch icon.
-const ink = theme.color.ink, paper = theme.color.offwhite;
+// Icons: the MZ monogram on an ink tile. Maskable art, also used as favicon and touch icon.
+const ink = theme.color.ink;
 for (const [file, size] of [['icon-192.png', 192], ['icon-512.png', 512], ['apple-touch-icon.png', 180], ['favicon-32.png', 32]]) {
-  // The favicon has no mask to stay clear of, so its seal can be larger.
-  writeFileSync(`${OUT}${file}`, await icon(size, { tile: ink, paper, scale: size <= 32 ? 0.9 : 0.7 }));
+  // The favicon has no mask to stay clear of, so its monogram can be larger.
+  writeFileSync(`${OUT}${file}`, await icon(size, { tile: ink, mark: theme.color.offwhite, rule: theme.color.accent, scale: size <= 32 ? 0.8 : 0.5 }));
 }
 
 // QR codes for the card. The vCard payload stays ASCII and minimal.
@@ -70,8 +70,8 @@ console.log(`qr: url v${qrWeb.version}, vcard v${qrVcard.version}`);
 
 const manifest = {
   id: './',
-  name: cv.person.name,
-  short_name: cv.person.given,
+  name: cv.site.card_app.name,
+  short_name: cv.site.card_app.short_name,
   description: `${cv.person.name}, ${cv.person.title}`,
   start_url: './',
   scope: './',
