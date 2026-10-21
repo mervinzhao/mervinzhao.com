@@ -24,6 +24,10 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - uses: actions/cache@v6
+        with:
+          path: .cache/fonts
+          key: fonts-${{ hashFiles('scripts/lib/fonts.mjs') }}
       - run: npm run build
       - run: npm run check
       - uses: actions/upload-pages-artifact@v5

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ lang or 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% block title %}{{ cv.person.name }}, {{ cv.person.honorific }}{% endblock %}</title>
+<meta name="theme-color" content="{{ theme.color.ink }}">
+{% block head %}{% endblock %}
+<link rel="preload" href="{{ root }}fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+{{ fontCss | safe }}:root{ {{ cssVars | safe }} }
+{{ css | safe }}
+</style>
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>

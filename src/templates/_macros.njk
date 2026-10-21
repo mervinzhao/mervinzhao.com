@@ -1,0 +1,44 @@
+{# Name, CJK line, title and org. Shared by the landing hero and the card. #}
+{% macro identity(cv) %}
+{% set p = cv.person %}
+<div class="id">
+  <h1>{{ p.name }}<span class="hon">, {{ p.honorific }}</span></h1>
+  <p class="cjk">
+    <span lang="ja">{% for part in p.ja %}<ruby>{{ part.text }}<rt>{{ part.ruby }}</rt></ruby>{% if not loop.last %}&#8201;{% endif %}{% endfor %}</span>
+    <span class="div" aria-hidden="true"></span>
+    <span lang="zh-Hans">{{ p.zh }}</span>
+  </p>
+  <div class="role">
+    <span class="title">{{ p.title }}</span>
+    {% set org = cv.affiliations[p.org] %}
+    <span class="org">{% if org.logo %}{{ logo(org.logo) | safe }}{% endif %}{{ org.name }}</span>
+  </div>
+</div>
+{% endmacro %}
+
+{# Responsive photo from src/assets/photos/photos.json. #}
+{% macro photo(name, root, sizes, priority=false) %}
+{% set ph = photos[name] %}
+<picture>
+  <source type="image/avif" srcset="{% for w in ph.widths %}{{ root }}photos/{{ name }}-{{ w }}.avif {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}">
+  <source type="image/webp" srcset="{% for w in ph.widths %}{{ root }}photos/{{ name }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}">
+  <img src="{{ root }}photos/{{ name }}-{{ ph.widths[1] }}.webp" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="background:{{ ph.color }}"{% if priority %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">
+</picture>
+{% endmacro %}
+
+{# 40 px logo tile; falls back to the short name when `logo` is absent. #}
+{% macro tile(org, accent=false) %}
+<span class="tile{% if accent %} accent{% endif %}"{% if org.logo %} data-logo="{{ org.logo }}"{% endif %}>{% if org.logo %}{{ logo(org.logo) | safe }}{% else %}{{ org.short }}{% endif %}</span>
+{% endmacro %}
+
+{% macro entry(cv, e, role, accent=false) %}
+{% set org = cv.affiliations[e.org] %}
+<li class="entry">
+  {{ tile(org, accent) }}
+  <div class="entry-main">
+    <div class="entry-head"><span class="entry-name">{{ org.name }}</span><span class="entry-when">{{ years(e.start, e.end) }}</span></div>
+    <span class="entry-role">{{ role }}</span>
+    {% if e.story %}<p class="entry-story">{{ e.story }}</p>{% endif %}
+  </div>
+</li>
+{% endmacro %}

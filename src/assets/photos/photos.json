@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "alt": "Long-exposure photo of a turquoise glacial river cascading over dark rock toward snowy hills at sunset",
+    "width": 1236,
+    "height": 1854,
+    "widths": [
+      412,
+      824,
+      1236
+    ],
+    "color": "#080818"
+  },
+  "band": {
+    "alt": "Long-exposure fog flowing over a forested ridge at dusk, with house lights glowing through",
+    "width": 1236,
+    "height": 810,
+    "widths": [
+      412,
+      824,
+      1236
+    ],
+    "color": "#d8d8c8"
+  }
+}

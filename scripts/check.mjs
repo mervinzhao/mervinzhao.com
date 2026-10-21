@@ -67,5 +67,21 @@ for (const [file, read] of targets) {
   }
 }
 
+// Images must carry no EXIF/XMP/IPTC (the fog original has GPS coordinates).
+const IMAGE = /\.(jpe?g|png|webp|avif)$/i;
+if (!staged) {
+  const { default: sharp } = await import('sharp');
+  for (const [file] of targets.filter(([f]) => IMAGE.test(f) && existsSync(f))) {
+    const m = await sharp(file).metadata();
+    if (m.exif || m.xmp || m.iptc) {
+      console.error(`LEAK: image metadata in ${file}`);
+      failures++;
+    }
+  }
+} else if (targets.some(([f]) => IMAGE.test(f) && !/^src[\\/]assets[\\/]/.test(f))) {
+  console.error('LEAK: images may only be committed under src/assets/ (processed by scripts/photos.mjs)');
+  failures++;
+}
+
 if (failures) process.exit(1);
 console.log(`check: no private data in ${staged ? 'staged files' : 'dist/ or committable files'}`);

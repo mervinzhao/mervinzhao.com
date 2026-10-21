@@ -1,22 +1,92 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ cv.person.name }}, {{ cv.person.honorific }}</title>
-<meta name="description" content="{{ cv.person.title }}">
-<style>
-:root{ {{ cssVars | safe }} }
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--outer);color:var(--offwhite);font-family:system-ui,sans-serif}
-main{max-width:440px;padding:24px}
-h1{margin:0 0 8px;font-weight:600}
-p{margin:0;color:var(--muted-dark)}
-</style>
-</head>
-<body>
+{% extends "_base.njk" %}
+{% from "_macros.njk" import identity, photo, entry %}
+{% set p = cv.person %}
+
+{% block head %}
+<meta name="description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}. {{ cv.about.lead }}">
+<link rel="canonical" href="{{ p.url }}">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="{{ p.name }}, {{ p.honorific }}">
+<meta property="og:description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}">
+<meta property="og:url" content="{{ p.url }}">
+<meta property="og:image" content="{{ p.url }}photos/hero-824.webp">
+{% endblock %}
+
+{% block body %}
+<div class="page">
+
+<header class="hero">
+  {{ photo('hero', root, '(min-width: 440px) 440px, 100vw', true) }}
+  <div class="hero-in">
+    <div class="top">
+      <a class="mono" href="{{ root }}" aria-label="{{ p.name }}, home">MZ</a>
+      {% if languages.length > 1 %}
+      <nav class="lang" aria-label="Language">
+        {% for l in languages %}<a href="{{ root }}{{ l.path }}" lang="{{ l.code }}"{% if l.code == lang %} aria-current="page"{% endif %}>{{ l.label }}</a>{% endfor %}
+      </nav>
+      {% endif %}
+    </div>
+    {{ identity(cv) }}
+  </div>
+</header>
+
+<nav class="actions" aria-label="Contact">
+  <a class="btn btn-primary" href="{{ root }}mervin-zhao.vcf" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Save contact</a>
+  <a class="btn" href="mailto:{{ p.email.work }}">Email</a>
+  <a class="btn" href="{{ p.links.linkedin }}">LinkedIn</a>
+</nav>
+
 <main>
-<h1>{{ cv.person.name }}</h1>
-<p>{{ cv.person.title }}. Site under construction.</p>
+<section class="about" aria-labelledby="h-about">
+  <div class="h2"><h2 id="h-about">About</h2></div>
+  <p class="lead">{{ cv.about.lead }}</p>
+  <p class="body">{{ cv.about.body }}</p>
+  <ul class="chips">{% for f in cv.about.focus %}<li>{{ f }}</li>{% endfor %}</ul>
+</section>
+
+<section aria-labelledby="h-exp">
+  <div class="h2"><h2 id="h-exp">Experience</h2></div>
+  <ul>
+    {% for e in cv.experience %}{{ entry(cv, e, e.role, accent=(loop.first and not e.end and theme['brand-accent-logo'])) }}{% endfor %}
+  </ul>
+</section>
+
+<section aria-labelledby="h-edu">
+  <div class="h2"><h2 id="h-edu">Education</h2></div>
+  <ul>
+    {% for e in cv.education %}{{ entry(cv, e, e.degree) }}{% endfor %}
+  </ul>
+</section>
+
+<section aria-labelledby="h-pubs">
+  <div class="h2"><h2 id="h-pubs">Selected publications</h2></div>
+  <ul>
+    {% for pub in cv.publications %}{% if pub.selected %}
+    <li class="pub">
+      <span class="pub-title">{{ pub.title }}</span>
+      <span class="pub-meta">{{ authorsShort(pub.authors) }} <em>{{ pub.venue }}</em> ({{ pub.year }})</span>
+    </li>
+    {% endif %}{% endfor %}
+  </ul>
+  <div class="pubs-foot">
+    <span>{{ cv.publications.length }} publications, {{ cv.patents.length }} patents</span>
+    <a href="{{ p.links.scholar }}">Google Scholar</a>
+  </div>
+</section>
 </main>
-</body>
-</html>
+
+<footer>
+  {% if hasCvPdf %}
+  <a class="btn" href="{{ root }}cv.pdf">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>Download CV (PDF)</a>
+  {% endif %}
+  <div class="contact">
+    <span class="label">Contact</span>
+    {% for kind in ['work', 'home'] %}{% if p.email[kind] %}<a href="mailto:{{ p.email[kind] }}">{{ p.email[kind] }}</a>{% endif %}{% endfor %}
+  </div>
+  <span class="copy">© {{ buildYear }} {{ p.name }}</span>
+</footer>
+
+</div>
+{% endblock %}

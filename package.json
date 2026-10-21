@@ -10,11 +10,13 @@
     "build:private": "node scripts/build.mjs --private",
     "check": "node scripts/check.mjs",
     "dev": "node scripts/serve.mjs",
-    "dev:private": "node scripts/serve.mjs --private"
+    "dev:private": "node scripts/serve.mjs --private",
+    "photos": "node scripts/photos.mjs"
   },
   "dependencies": {
     "nunjucks": "^3.2.4",
     "sharp": "^0.34.5",
+    "subset-font": "^2.9.0",
     "yaml": "^2.9.1"
   },
   "devDependencies": {

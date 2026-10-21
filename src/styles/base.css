@@ -1,0 +1,34 @@
+/* Shared by every page. Colors come from theme/tokens.yaml as custom properties. */
+:root {
+  --sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ja: 'Shippori Mincho', 'Noto Serif JP', serif;
+  --zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ruby: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; }
+h1, h2, p, ul { margin: 0; }
+ul { list-style: none; padding: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Identity block: name, CJK line, title, org. Used by the hero and the card. */
+.id { display: flex; flex-direction: column; gap: 10px; }
+.id h1 { font-weight: 600; letter-spacing: -0.025em; }
+.id h1 .hon { font-weight: 500; letter-spacing: 0; color: var(--muted-dark); }
+.id .cjk { display: flex; align-items: flex-end; gap: 14px; color: #E8E4DE; font-size: 21px; line-height: 1.5; font-weight: 500; }
+.id .cjk [lang="ja"] { font-family: var(--ja); }
+.id .cjk [lang="zh-Hans"] { font-family: var(--zh); }
+.id .cjk .div { width: 1px; height: 21px; margin-bottom: 6px; background: #5A5A66; }
+.id ruby { ruby-align: center; }
+.id rt { font-family: var(--ruby); font-size: 10px; font-weight: 500; letter-spacing: 0.02em; color: var(--muted-dark); }
+.id .role { display: flex; flex-direction: column; gap: 6px; }
+.id .title { font-weight: 500; }
+.id .org { display: flex; align-items: center; gap: 8px; color: #C9C5BF; }
+.id .org svg { width: 14px; height: 18px; flex: none; color: var(--accent); }
