@@ -1,6 +1,6 @@
 /* Shared by every page. Colors come from theme/tokens.yaml as custom properties. */
 :root {
-  --sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ja: 'Shippori Mincho', 'Noto Serif JP', serif;
   --zh: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --ruby: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;

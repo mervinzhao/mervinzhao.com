@@ -14,10 +14,10 @@ export const CACHE = fsPath('.cache/fonts/');
 // `chars`: 'latin' keeps a fixed Latin range (stable across content edits);
 // 'content' keeps only the non-ASCII characters found in the content.
 export const FONTS = [
-  { id: 'hanken', family: 'Hanken Grotesk', file: 'HankenGrotesk[wght].ttf', dir: 'hankengrotesk', weight: '100 900', style: 'normal', chars: 'latin',
-    sha256: '813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f' },
-  { id: 'hanken-italic', family: 'Hanken Grotesk', file: 'HankenGrotesk-Italic[wght].ttf', dir: 'hankengrotesk', weight: '100 900', style: 'italic', chars: 'latin',
-    sha256: 'ae5731726ff75301a3cb63f2e98d1babc77d55ab09fb8e229ca75f5bd46fbe32' },
+  { id: 'geist', family: 'Geist', file: 'Geist[wght].ttf', dir: 'geist', weight: '100 900', style: 'normal', chars: 'latin',
+    sha256: '73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659' },
+  { id: 'geist-italic', family: 'Geist', file: 'Geist-Italic[wght].ttf', dir: 'geist', weight: '100 900', style: 'italic', chars: 'latin',
+    sha256: 'a464348abe41a6392f18d04c0ac2ad3c26619357ff5fdd76aff3059116f45e62' },
   { id: 'shippori', family: 'Shippori Mincho', file: 'ShipporiMincho-Medium.ttf', dir: 'shipporimincho', weight: '500', style: 'normal', chars: 'content',
     sha256: '700e505afc4cded2338eba29478a041e04c1c2ea5114fbb3e0b04e76c302c5d8' },
   { id: 'notosc', family: 'Noto Sans SC', file: 'NotoSansSC[wght].ttf', dir: 'notosanssc', weight: '100 900', style: 'normal', chars: 'content',
@@ -26,7 +26,7 @@ export const FONTS = [
     sha256: '651a3f7280b7f36262601ee76d8388a8dc4372dcc67aff025a608939a562b525' },
 ];
 
-const LICENSES = ['hankengrotesk', 'shipporimincho', 'notosanssc', 'zenkakugothicnew'];
+const LICENSES = ['geist', 'shipporimincho', 'notosanssc', 'zenkakugothicnew'];
 
 const sha256 = (buf) => createHash('sha256').update(buf).digest('hex');
 

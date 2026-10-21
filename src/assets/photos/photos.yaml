@@ -19,20 +19,20 @@ band:
   aspect: 1.5259   # 412 × 270
   focus: [50, 50]
   widths: [412, 824, 1236]
+# Headshot: the 800 px square used on LinkedIn, at full frame so the circle
+# matches the LinkedIn crop (head and shoulders with some sky).
 portrait:
-  src: headshot.jpg
+  src: headshot-linkedin.png
   alt: Mervin Zhao
   aspect: 1
-  zoom: 0.66     # head and shoulders
-  focus: [49, 49]
+  focus: [50, 50]
   widths: [160, 288]
 # Embedded in the downloadable vCard (base64), so kept small.
 vcard:
-  src: headshot.jpg
+  src: headshot-linkedin.png
   alt: Mervin Zhao
   aspect: 1
-  zoom: 0.66
-  focus: [49, 49]
+  focus: [50, 50]
   widths: [240]
   formats: [jpg]
 # Link previews (Open Graph): 1.91:1, JPEG for the widest support.

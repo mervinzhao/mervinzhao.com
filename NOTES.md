@@ -71,7 +71,7 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 ## Open: build
 
 - [ ] **CV PDF (Typst)** from `cv.yaml`: full detail, all publications and patents. The private build adds the private overlay. Once `cv.pdf` exists, the CV buttons appear automatically.
-- [x] App icon: now an MZ monogram outlined from Hanken Grotesk (`scripts/lib/icons.mjs`), also the site favicon. The installed app is named "Card" (full name "Mervin Zhao · Card", set in `cv.yaml` under `site.card_app`). Safe to install on a phone.
+- [x] App icon: now an MZ monogram outlined from Geist (`scripts/lib/icons.mjs`), also the site favicon. The installed app is named "Card" (full name "Mervin Zhao · Card", set in `cv.yaml` under `site.card_app`). Safe to install on a phone.
 - [ ] Seal (hero only now): find the original seal file (on the desktop) and redo it at full resolution.
 
 ## Open: email and testing

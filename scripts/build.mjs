@@ -60,7 +60,7 @@ writeFileSync(`${OUT}mervin-zhao.vcf`, vcard(cv, { variant: 'file', photo: vcard
 const ink = theme.color.ink;
 for (const [file, size] of [['icon-192.png', 192], ['icon-512.png', 512], ['apple-touch-icon.png', 180], ['favicon-32.png', 32]]) {
   // The favicon has no mask to stay clear of, so its monogram can be larger.
-  writeFileSync(`${OUT}${file}`, await icon(size, { tile: ink, mark: theme.color.offwhite, rule: theme.color.accent, scale: size <= 32 ? 0.8 : 0.5 }));
+  writeFileSync(`${OUT}${file}`, await icon(size, { tile: ink, mark: theme.color.offwhite, rule: theme.color.accent, scale: size <= 32 ? 0.78 : 0.42 }));
 }
 
 // QR codes for the card. The vCard payload stays ASCII and minimal.
@@ -103,7 +103,7 @@ writeFileSync(`${OUT}card/manifest.webmanifest`, JSON.stringify(manifest, null, 
 // Card service worker: precache list relative to /card/, versioned by content.
 const precache = [
   './', 'manifest.webmanifest', '../seal.webp', '../photos/band-1236.avif', '../photos/band-1236.webp',
-  '../icon-192.png', '../icon-512.png', ...['hanken', 'shippori', 'notosc', 'zenkaku'].map((f) => `../fonts/${f}.woff2`),
+  '../icon-192.png', '../icon-512.png', ...['geist', 'shippori', 'notosc', 'zenkaku'].map((f) => `../fonts/${f}.woff2`),
 ];
 const hash = createHash('sha256');
 for (const a of precache) hash.update(readFileSync(`${OUT}card/${a === './' ? 'index.html' : a}`));

@@ -1,6 +1,6 @@
-// App icons: an "MZ" monogram in Hanken Grotesk over the coral rule from the
-// section headings, on an ink tile. Maskable, so the mark stays inside the
-// central 80% circle. Glyphs are outlined from the font, so no system fonts are needed.
+// App icons: an "MZ" monogram in Geist over a coral rule as wide as the letters,
+// on an ink tile. Maskable, so the mark stays well inside the central 80% circle.
+// Glyphs are outlined from the font, so no system fonts are needed.
 import { readFileSync } from 'node:fs';
 import * as hb from 'harfbuzzjs';
 import sharp from 'sharp';
@@ -11,7 +11,7 @@ const WEIGHT = 600, TRACKING = -0.04;
 
 // Glyph paths in font units (y up), plus their ink bounds.
 function outline(text) {
-  const face = new hb.Face(new hb.Blob(readFileSync(`${CACHE}HankenGrotesk[wght].ttf`)));
+  const face = new hb.Face(new hb.Blob(readFileSync(`${CACHE}Geist[wght].ttf`)));
   const font = new hb.Font(face);
   font.setVariations([new hb.Variation('wght', WEIGHT)]);
   const buf = new hb.Buffer();
@@ -36,11 +36,11 @@ function outline(text) {
 const MZ = outline('MZ');
 
 // `scale` is the monogram's width as a fraction of the icon.
-export async function icon(size, { tile, mark, rule, scale = 0.5 }) {
+export async function icon(size, { tile, mark, rule, scale = 0.42 }) {
   const k = (size * scale) / MZ.width;
   const capH = MZ.height * k;
   const gap = capH * 0.26;
-  const ruleW = size * scale * 0.42;
+  const ruleW = size * scale;
   // Whole pixels, so the rule stays crisp at favicon size.
   const ruleH = Math.max(Math.round(capH * 0.11), 2);
   const y0 = (size - (capH + gap + ruleH)) / 2;
