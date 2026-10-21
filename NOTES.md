@@ -21,10 +21,7 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 ## Branches
 
 - `main`: deploys to mervinzhao.com on every push (GitHub Actions → Pages).
-- `content-draft`: unapproved copy, not deployed. It contains:
-  - About section removed; the headshot moved into the hero above the name
-  - the "Currently thinking about" section, now first
-  - section order set from `cv.yaml`
+- `content-draft`: unapproved copy, not deployed. Shipped to `main` on 2026-10-21; nothing pending on it now.
 
   To review it: `git checkout content-draft && npm run dev`. To ship it: merge into `main` and push.
 
@@ -44,7 +41,7 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 
 - `content/cv.yaml`: single source of truth for the site, card, vCard and (soon) CV PDF.
 - `theme/tokens.yaml`: colors and fonts. Switch theme with `active:`.
-- `src/templates/`: Nunjucks pages. On `content-draft`, `sections/` holds one file per landing section.
+- `src/templates/`: Nunjucks pages. `sections/` holds one file per landing section; order comes from `site.sections` in `cv.yaml`.
 - `src/styles/`: `base.css` is shared, plus `landing.css` and `card.css`.
 - `src/assets/`: logos, derived photos and the seal. Originals never go here.
 - `scripts/`: the build and the asset pipelines.
@@ -55,15 +52,12 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 - Landing page (phone layout plus desktop split layout), no JavaScript required.
 - `/card/` app with URL and vCard QR toggle (v2 and v11), wake lock, offline, installable.
 - vCard download with Japanese phonetic name and photo.
-- Official org logos, 墨文 seal in the hero, headshot in About, fog photo for link previews.
+- Official org logos, 墨文 seal and headshot in the hero, fog photo for link previews.
 - Leak guard covering phone patterns, Gmail, private values, forbidden terms and image metadata.
+- Landing leads with "Currently thinking about" (five topics); no About section, focus chips, conversation line or publication count.
 
 ## Open: content (in progress)
 
-- [x] About section: dropped. Experience carries the specifics.
-- [ ] Review `content-draft`: hero headshot, section order.
-- [x] "Currently thinking about": four topics settled (was "Happy to talk about").
-- [x] Focus chips: dropped. They looked clickable but weren't links or tags.
 - [ ] Stories: optional 2–4 sentences per experience entry (`story:` field in `cv.yaml`). Draft prompts:
   - 4C Air: COVID masks with CDC/WHO; what made the biodegradable N95-level material hard.
   - Berkeley: the PhD in one plain sentence.
