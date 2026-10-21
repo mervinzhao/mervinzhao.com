@@ -9,7 +9,8 @@
     "build": "node scripts/build.mjs",
     "build:private": "node scripts/build.mjs --private",
     "check": "node scripts/check.mjs",
-    "serve": "npx --yes http-server@14.1.1 dist -p 8080 -c-1"
+    "dev": "node scripts/serve.mjs",
+    "dev:private": "node scripts/serve.mjs --private"
   },
   "dependencies": {
     "nunjucks": "^3.2.4",
