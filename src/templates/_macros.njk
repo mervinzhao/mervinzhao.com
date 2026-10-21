@@ -39,6 +39,12 @@
     <div class="entry-head"><span class="entry-name">{{ org.name }}</span><span class="entry-when">{{ years(e.start, e.end) }}</span></div>
     <span class="entry-role">{{ role }}</span>
     {% if e.story %}<p class="entry-story">{{ e.story }}</p>{% endif %}
+    {% if e.summary or e.highlights %}
+    <div class="entry-detail">
+      {% if e.summary %}<p>{{ e.summary }}</p>{% endif %}
+      {% if e.highlights %}<ul>{% for h in e.highlights %}<li>{{ h }}</li>{% endfor %}</ul>{% endif %}
+    </div>
+    {% endif %}
   </div>
 </li>
 {% endmacro %}

@@ -17,8 +17,9 @@
 {% block body %}
 <div class="page">
 
+<div class="side">
 <header class="hero">
-  {{ photo('hero', root, '(min-width: 440px) 440px, 100vw', true) }}
+  {{ photo('hero', root, '(min-width: 960px) 44vw, (min-width: 440px) 440px, 100vw', true) }}
   <div class="hero-in">
     <div class="top">
       <img class="seal" src="{{ root }}seal.webp" width="22" height="48" alt="">
@@ -38,6 +39,7 @@
   <a class="btn" href="mailto:{{ p.email.work }}">Email</a>
   <a class="btn" href="{{ p.links.linkedin }}">LinkedIn</a>
 </nav>
+</div>
 
 <main>
 <section class="about" aria-labelledby="h-about">
