@@ -1,6 +1,7 @@
 // Builds the static site into dist/ (or dist-private/ with --private).
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import nunjucks from 'nunjucks';
+import sharp from 'sharp';
 import { fsPath, loadContent } from './lib/content.mjs';
 import { ensureFonts, subsetFonts } from './lib/fonts.mjs';
 import { authorsShort, months, years } from './lib/format.mjs';
@@ -41,6 +42,9 @@ mkdirSync(`${OUT}photos/`);
 for (const f of readdirSync(fsPath('src/assets/photos/')).filter((f) => /\.(avif|webp)$/.test(f))) {
   copyFileSync(fsPath(`src/assets/photos/${f}`), `${OUT}photos/${f}`);
 }
+
+// Name seal (墨文): small WebP at ~3× its 22–24 px display width.
+await sharp(fsPath('src/assets/seal/seal.png')).resize({ width: 72 }).webp({ quality: 82, alphaQuality: 85 }).toFile(`${OUT}seal.webp`);
 
 // vCard download.
 writeFileSync(`${OUT}mervin-zhao.vcf`, vcard(cv, { variant: 'file' }));

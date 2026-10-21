@@ -19,7 +19,7 @@
   {{ photo('hero', root, '(min-width: 440px) 440px, 100vw', true) }}
   <div class="hero-in">
     <div class="top">
-      <a class="mono" href="{{ root }}" aria-label="{{ p.name }}, home">MZ</a>
+      <img class="seal" src="{{ root }}seal.webp" width="22" height="48" alt="">
       {% if languages.length > 1 %}
       <nav class="lang" aria-label="Language">
         {% for l in languages %}<a href="{{ root }}{{ l.path }}" lang="{{ l.code }}"{% if l.code == lang %} aria-current="page"{% endif %}>{{ l.label }}</a>{% endfor %}

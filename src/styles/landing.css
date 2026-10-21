@@ -5,7 +5,7 @@ a { color: inherit; }
 
 /* Hero: photo at native 2:3 with a bottom scrim. */
 .hero { position: relative; aspect-ratio: 2 / 3; overflow: hidden; color: var(--offwhite); }
-.hero picture, .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero > picture, .hero > picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero::after {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(to bottom, rgba(19,19,24,0) 42%, rgba(19,19,24,0.78) 68%, rgba(19,19,24,0.97) 100%);
@@ -16,7 +16,8 @@ a { color: inherit; }
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .top { display: flex; justify-content: space-between; align-items: center; }
-.mono { font-size: 18px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+/* Name seal, stamped onto the photo: multiply lets the sky show through the cut-outs. */
+.seal { width: 22px; height: auto; opacity: 0.85; mix-blend-mode: multiply; }
 .lang { display: flex; padding: 3px; gap: 2px; border-radius: 999px; background: rgba(19,19,24,0.72); }
 .lang a {
   height: 44px; padding: 0 15px; border-radius: 999px; display: flex; align-items: center;
