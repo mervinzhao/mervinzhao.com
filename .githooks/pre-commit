@@ -1,0 +1,4 @@
+#!/bin/sh
+# Blocks commits that contain private data (see scripts/check.mjs).
+# Enabled by `npm install` (prepare script sets core.hooksPath).
+exec node scripts/check.mjs --staged
