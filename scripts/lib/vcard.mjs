@@ -1,6 +1,6 @@
 // vCard 3.0 (RFC 2426). Two variants:
 //   qr:   minimal, ASCII only, kept small so the QR stays around version 11
-//   file: the downloadable .vcf, adds Japanese phonetic names for sorting
+//   file: the downloadable .vcf, adds Japanese phonetic names and a photo
 const esc = (s) => String(s).replace(/\\/g, '\\\\').replace(/[,;]/g, (c) => `\\${c}`).replace(/\n/g, '\\n');
 
 // Fold at 75 octets without splitting a UTF-8 sequence.
@@ -19,7 +19,7 @@ function fold(line) {
   return out.join('\r\n ');
 }
 
-export function vcard(cv, { variant }) {
+export function vcard(cv, { variant, photo }) {
   const p = cv.person;
   const org = cv.affiliations[p.org].name;
   const lines = [
@@ -37,6 +37,8 @@ export function vcard(cv, { variant }) {
   if (p.email.home) lines.push(`EMAIL;TYPE=${variant === 'file' ? 'INTERNET,HOME' : 'HOME'}:${p.email.home}`);
   // Private builds only: check.mjs fails the public build on any TEL line.
   if (p.phone) lines.push(`TEL;TYPE=CELL:${p.phone}`);
-  lines.push(`URL:${p.url}`, `URL:${p.links.linkedin}`, 'END:VCARD');
+  lines.push(`URL:${p.url}`, `URL:${p.links.linkedin}`);
+  if (photo) lines.push(`PHOTO;ENCODING=b;TYPE=JPEG:${photo.toString('base64')}`);
+  lines.push('END:VCARD');
   return lines.map(fold).join('\r\n') + '\r\n';
 }

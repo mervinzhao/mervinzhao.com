@@ -17,12 +17,12 @@
 {% endmacro %}
 
 {# Responsive photo from src/assets/photos/photos.json. #}
-{% macro photo(name, root, sizes, priority=false) %}
+{% macro photo(name, root, sizes, priority=false, cls='') %}
 {% set ph = photos[name] %}
-<picture>
+<picture{% if cls %} class="{{ cls }}"{% endif %}>
   <source type="image/avif" srcset="{% for w in ph.widths %}{{ root }}photos/{{ name }}-{{ w }}.avif {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}">
   <source type="image/webp" srcset="{% for w in ph.widths %}{{ root }}photos/{{ name }}-{{ w }}.webp {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" sizes="{{ sizes }}">
-  <img src="{{ root }}photos/{{ name }}-{{ ph.widths[1] }}.webp" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="background:{{ ph.color }}"{% if priority %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">
+  <img src="{{ root }}photos/{{ name }}-{{ ph.widths[1] or ph.widths[0] }}.webp" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="background:{{ ph.color }}"{% if priority %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">
 </picture>
 {% endmacro %}
 

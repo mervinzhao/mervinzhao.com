@@ -11,7 +11,11 @@
 <meta property="og:title" content="{{ p.name }}, {{ p.honorific }}">
 <meta property="og:description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}">
 <meta property="og:url" content="{{ p.url }}">
-<meta property="og:image" content="{{ p.url }}photos/hero-824.webp">
+<meta property="og:image" content="{{ p.url }}photos/og-1200.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portrait of {{ p.name }}">
+<meta name="twitter:card" content="summary_large_image">
 {% endblock %}
 
 {% block body %}
@@ -34,17 +38,22 @@
 </header>
 
 <nav class="actions" aria-label="Contact">
-  <a class="btn btn-primary" href="{{ root }}mervin-zhao.vcf" download>
+  {# Phones: Save contact leads. Desktop (CSS): Email leads, Save contact moves to the footer. #}
+  <a class="btn btn-primary btn-save" href="{{ root }}mervin-zhao.vcf" download>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Save contact</a>
-  <a class="btn" href="mailto:{{ p.email.work }}">Email</a>
+  <a class="btn btn-email" href="mailto:{{ p.email.work }}">Email</a>
   <a class="btn" href="{{ p.links.linkedin }}">LinkedIn</a>
+  {% if hasCvPdf %}<a class="btn btn-cv" href="{{ root }}cv.pdf">CV (PDF)</a>{% endif %}
 </nav>
 </div>
 
 <main>
 <section class="about" aria-labelledby="h-about">
   <div class="h2"><h2 id="h-about">About</h2></div>
-  <p class="lead">{{ cv.about.lead }}</p>
+  <div class="intro">
+    {{ photo('portrait', root, '(min-width: 960px) 96px, 72px', false, 'portrait') }}
+    <p class="lead">{{ cv.about.lead }}</p>
+  </div>
   <p class="body">{{ cv.about.body }}</p>
   <ul class="chips">{% for f in cv.about.focus %}<li>{{ f }}</li>{% endfor %}</ul>
 </section>
@@ -88,6 +97,7 @@
   <div class="contact">
     <span class="label">Contact</span>
     {% for kind in ['work', 'home'] %}{% if p.email[kind] %}<a href="mailto:{{ p.email[kind] }}">{{ p.email[kind] }}</a>{% endif %}{% endfor %}
+    <a class="vcf" href="{{ root }}mervin-zhao.vcf" download>Download vCard (.vcf)</a>
   </div>
   <span class="copy">© {{ buildYear }} {{ p.name }}</span>
 </footer>

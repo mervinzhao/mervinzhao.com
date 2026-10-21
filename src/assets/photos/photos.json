@@ -20,5 +20,32 @@
       1236
     ],
     "color": "#d8d8c8"
+  },
+  "portrait": {
+    "alt": "Mervin Zhao",
+    "width": 288,
+    "height": 288,
+    "widths": [
+      160,
+      288
+    ],
+    "color": "#080808"
+  },
+  "vcard": {
+    "alt": "Mervin Zhao",
+    "width": 240,
+    "height": 240,
+    "widths": [
+      240
+    ],
+    "color": "#080808"
+  },
+  "og": {
+    "alt": "Mervin Zhao",
+    "width": 1200,
+    "height": 630,
+    "widths": [
+      1200
+    ]
   }
 }

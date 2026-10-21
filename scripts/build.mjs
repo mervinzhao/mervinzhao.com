@@ -42,7 +42,7 @@ const fontCss = await subsetFonts(JSON.stringify(cv) + templateText, `${OUT}font
 
 // Photos: derived files only.
 mkdirSync(`${OUT}photos/`);
-for (const f of readdirSync(fsPath('src/assets/photos/')).filter((f) => /\.(avif|webp)$/.test(f))) {
+for (const f of readdirSync(fsPath('src/assets/photos/')).filter((f) => /\.(avif|webp)$/.test(f) || f.startsWith('og-'))) {
   copyFileSync(fsPath(`src/assets/photos/${f}`), `${OUT}photos/${f}`);
 }
 
@@ -50,7 +50,8 @@ for (const f of readdirSync(fsPath('src/assets/photos/')).filter((f) => /\.(avif
 await sharp(fsPath('src/assets/seal/seal.png')).resize({ width: 72 }).webp({ quality: 82, alphaQuality: 85 }).toFile(`${OUT}seal.webp`);
 
 // vCard download.
-writeFileSync(`${OUT}mervin-zhao.vcf`, vcard(cv, { variant: 'file' }));
+const vcardPhoto = readFileSync(fsPath('src/assets/photos/vcard-240.jpg'));
+writeFileSync(`${OUT}mervin-zhao.vcf`, vcard(cv, { variant: 'file', photo: vcardPhoto }));
 
 // Icons: the seal on an ink tile. Maskable art, also used as favicon and touch icon.
 const ink = theme.color.ink, paper = theme.color.offwhite;

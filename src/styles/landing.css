@@ -51,6 +51,8 @@ section:last-of-type { padding-bottom: 40px; }
 .h2::before { content: ''; width: 20px; height: 2px; background: var(--accent); }
 .h2 h2 { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 .about { gap: 16px; }
+.intro { display: flex; align-items: flex-start; gap: 16px; }
+.portrait, .portrait img { display: block; width: 72px; height: 72px; flex: none; border-radius: 50%; object-fit: cover; }
 .lead { font-size: 20px; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; }
 .body { font-size: 15px; line-height: 1.6; color: #3A3936; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
@@ -90,6 +92,8 @@ footer .btn { height: 52px; font-size: 15px; }
 .contact { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
 .contact .label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-dark); }
 .contact a { color: var(--offwhite); text-underline-offset: 3px; }
+/* On phones Save contact is the main button; the vCard link and CV button are desktop extras. */
+.contact .vcf, .btn-cv { display: none; }
 .copy { font-size: 12px; color: var(--muted-dark); }
 
 /* Fuller entry text (summary and highlights): desktop only, phones stay compact. */
@@ -109,6 +113,16 @@ footer .btn { height: 52px; font-size: 15px; }
   .hero > picture img { object-position: 50% 12%; }
   .hero-in { padding: 44px 40px 32px; }
   .hero .id h1 { font-size: 52px; }
+
+  /* Desktop visitors mostly email, so Email leads; Save contact moves to the footer. */
+  .btn-save { display: none; }
+  .actions .btn-email { grid-column: 1 / -1; height: 52px; border: 0; background: var(--accent); color: var(--ink); font-size: 15px; }
+  .actions .btn-email:hover { filter: brightness(1.06); }
+  .btn-cv { display: flex; }
+  .actions:not(:has(.btn-cv)) .btn-email + .btn { grid-column: 1 / -1; }
+  .contact .vcf { display: inline; margin-top: 6px; color: var(--muted-dark); font-size: 13px; }
+  .portrait, .portrait img { width: 96px; height: 96px; }
+  .intro { gap: 24px; align-items: center; }
   .seal { width: 26px; }
   .actions { padding: 20px 40px 32px; }
 
