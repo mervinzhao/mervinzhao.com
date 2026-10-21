@@ -33,10 +33,12 @@ function outline(text) {
   return { paths: paths.join(''), left, top, width: right - left, height: top - bottom };
 }
 
-const MZ = outline('MZ');
+// Outlined on first use: the build fetches fonts before drawing icons, not before importing this.
+let MZ;
 
 // `scale` is the monogram's width as a fraction of the icon.
 export async function icon(size, { tile, mark, rule, scale = 0.42 }) {
+  MZ ??= outline('MZ');
   const k = (size * scale) / MZ.width;
   const capH = MZ.height * k;
   const gap = capH * 0.26;
