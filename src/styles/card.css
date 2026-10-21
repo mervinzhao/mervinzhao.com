@@ -1,0 +1,44 @@
+/* Card app (/card/). Reference 412 × 915; fits shorter phones by shrinking the band. */
+html, body { height: 100%; }
+body { background: var(--outer); color: var(--offwhite); }
+.card {
+  max-width: 440px; min-height: 100dvh; margin: 0 auto;
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+/* Fog band at native 3:2, cropped from the bottom-centre on short screens. */
+.band { position: relative; flex: none; height: clamp(150px, calc(100dvh - 645px), 65.5vw); max-height: 288px; overflow: hidden; }
+.band picture, .band picture img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+.chop { position: absolute; right: 14px; bottom: 12px; width: 16px; height: auto; opacity: 0.8; mix-blend-mode: multiply; }
+
+.who { padding: 24px 28px 0; }
+.card .id h1 { font-size: 40px; line-height: 1.05; }
+.card .id h1 .hon { font-size: 18px; }
+.card .id .title { font-size: 15px; }
+.card .id .org { font-size: 13px; }
+
+/* QR toggle: radio inputs, so it works without JavaScript. */
+.qr { margin: 22px auto 0; display: flex; flex-direction: column; align-items: center; }
+.qr fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: contents; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.tile-qr { width: 244px; background: #fff; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+.tile-qr svg { width: 244px; height: 244px; }
+.tile-qr .cap { padding: 0 0 12px; font-size: 13px; font-weight: 600; color: var(--ink); }
+.pane-web { display: contents; }
+.pane-vcard { display: none; }
+.qr:has(#qr-vcard:checked) .pane-web { display: none; }
+.qr:has(#qr-vcard:checked) .pane-vcard { display: contents; }
+
+.seg { margin-top: 18px; display: flex; padding: 4px; gap: 4px; border: 1px solid #3A3A44; border-radius: 999px; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label {
+  height: 44px; min-width: 128px; padding: 0 20px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; cursor: pointer; color: var(--offwhite);
+  -webkit-tap-highlight-color: transparent;
+}
+.seg input:checked + label { background: var(--accent); color: var(--ink); }
+.seg input:focus-visible + label { outline: 2px solid var(--offwhite); outline-offset: 2px; }
+.hint { margin: 12px 0 0; text-align: center; font-size: 12px; color: var(--muted-dark); }

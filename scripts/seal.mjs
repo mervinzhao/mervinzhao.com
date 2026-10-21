@@ -58,6 +58,49 @@ for (let y = 0; y < H; y++) {
   }
 }
 
+// Outline mask (seal body with cut-outs filled), used to back the seal with
+// paper colour in the app icon so the characters read light on a dark tile.
+// The seal is convex, but 文's strokes break through its border, so take the
+// convex hull of the solid field (alpha ≥ 200, just inside the rough rim).
+const pts = [];
+for (let y = 0; y < H; y++) {
+  let l = -1, r = -1;
+  for (let x = 0; x < NW; x++) if (out[(y * NW + x) * 4 + 3] >= 200) { if (l < 0) l = x; r = x; }
+  if (l >= 0) pts.push([l, y], [r, y]);
+}
+pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+const half = (list) => {
+  const h = [];
+  for (const p of list) {
+    while (h.length >= 2 && cross(h.at(-2), h.at(-1), p) <= 0) h.pop();
+    h.push(p);
+  }
+  return h.slice(0, -1);
+};
+const hull = [...half(pts), ...half([...pts].reverse())];
+
+const mask = Buffer.alloc(NW * H * 4);
+for (let y = 0; y < H; y++) {
+  // Horizontal extent of the hull on this row.
+  let l = Infinity, r = -Infinity;
+  for (let i = 0; i < hull.length; i++) {
+    const [x1, y1] = hull[i], [x2, y2] = hull[(i + 1) % hull.length];
+    if ((y < Math.min(y1, y2)) || (y > Math.max(y1, y2))) continue;
+    const x = y1 === y2 ? null : x1 + ((y - y1) * (x2 - x1)) / (y2 - y1);
+    for (const v of x === null ? [x1, x2] : [x]) { l = Math.min(l, v); r = Math.max(r, v); }
+  }
+  for (let x = 0; x < NW; x++) {
+    const o = (y * NW + x) * 4;
+    mask.fill(255, o, o + 3);
+    mask[o + 3] = x >= l && x <= r ? 255 : 0;
+  }
+}
+
+// Trim both with the same box so they stay registered.
 mkdirSync(fsPath('src/assets/seal/'), { recursive: true });
-await sharp(out, { raw: { width: NW, height: H, channels: 4 } }).trim().png().toFile(fsPath('src/assets/seal/seal.png'));
-console.log(`seal: ${NW}×${H} from x=${X0}`);
+const { info: box } = await sharp(mask, { raw: { width: NW, height: H, channels: 4 } }).trim().toBuffer({ resolveWithObject: true });
+const region = { left: -box.trimOffsetLeft, top: -box.trimOffsetTop, width: box.width, height: box.height };
+await sharp(out, { raw: { width: NW, height: H, channels: 4 } }).extract(region).png().toFile(fsPath('src/assets/seal/seal.png'));
+await sharp(mask, { raw: { width: NW, height: H, channels: 4 } }).extract(region).png().toFile(fsPath('src/assets/seal/seal-mask.png'));
+console.log(`seal: ${box.width}×${box.height} from x=${X0}`);

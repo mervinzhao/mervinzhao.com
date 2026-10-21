@@ -5,6 +5,8 @@
 {% block head %}
 <meta name="description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}. {{ cv.about.lead }}">
 <link rel="canonical" href="{{ p.url }}">
+<link rel="icon" href="{{ root }}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ root }}apple-touch-icon.png">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="{{ p.name }}, {{ p.honorific }}">
 <meta property="og:description" content="{{ p.title }}, {{ cv.affiliations[p.org].name }}">

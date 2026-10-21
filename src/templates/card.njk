@@ -1,0 +1,57 @@
+{% extends "_base.njk" %}
+{% from "_macros.njk" import identity %}
+
+{% block title %}{{ cv.person.name }}{% endblock %}
+{% block head %}
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="{{ root }}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ root }}apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="{{ manifest.short_name }}">
+{% endblock %}
+
+{% block body %}
+<main class="card">
+  <div class="band">
+    {% set ph = photos.band %}
+    <picture>
+      <source type="image/avif" srcset="{{ root }}photos/band-1236.avif">
+      <img src="{{ root }}photos/band-1236.webp" width="{{ ph.width }}" height="{{ ph.height }}" alt="{{ ph.alt }}" style="background:{{ ph.color }}">
+    </picture>
+    <img class="chop" src="{{ root }}seal.webp" width="16" height="35" alt="">
+  </div>
+
+  <div class="who">{{ identity(cv) }}</div>
+
+  <form class="qr" onsubmit="return false">
+    <fieldset>
+      <legend class="vh">QR code to show</legend>
+      <div class="tile-qr">
+        <div class="pane-web">{{ qrWeb | safe }}<span class="cap">{{ cv.person.url | replace('https://', '') | replace('/', '') }}</span></div>
+        <div class="pane-vcard">{{ qrVcard | safe }}<span class="cap">Scan to add contact</span></div>
+      </div>
+      <div class="seg">
+        <input type="radio" name="qr" id="qr-web" value="web" checked><label for="qr-web">Website</label>
+        <input type="radio" name="qr" id="qr-vcard" value="vcard"><label for="qr-vcard">Save contact</label>
+      </div>
+    </fieldset>
+  </form>
+  <p class="hint">Offline? Switch to Save contact.</p>
+</main>
+
+<script>
+// Keep the screen awake while the card is showing, so it doesn't dim mid-scan.
+(() => {
+  const wake = async () => {
+    if (!('wakeLock' in navigator) || document.visibilityState !== 'visible') return;
+    try { await navigator.wakeLock.request('screen'); } catch {}
+  };
+  document.addEventListener('visibilitychange', wake);
+  wake();
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js', { scope: './' });
+})();
+</script>
+{% endblock %}
