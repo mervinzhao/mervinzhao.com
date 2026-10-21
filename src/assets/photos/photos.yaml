@@ -32,8 +32,9 @@ vcard:
   formats: [jpg]
 # Link previews (Open Graph): 1.91:1, JPEG for the widest support.
 og:
-  src: headshot.jpg
-  alt: Mervin Zhao
+  src: 1__1_of_1_.jpg
+  alt: Long-exposure fog flowing over a forested ridge at dusk, with house lights glowing through
   aspect: 1.905
-  fit: blur-extend
+  focus: [45, 50]
   widths: [1200]
+  formats: [jpg]

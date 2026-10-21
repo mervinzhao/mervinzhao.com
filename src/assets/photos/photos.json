@@ -41,11 +41,12 @@
     "color": "#080808"
   },
   "og": {
-    "alt": "Mervin Zhao",
+    "alt": "Long-exposure fog flowing over a forested ridge at dusk, with house lights glowing through",
     "width": 1200,
     "height": 630,
     "widths": [
       1200
-    ]
+    ],
+    "color": "#a8a8a8"
   }
 }
