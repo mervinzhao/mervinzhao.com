@@ -21,7 +21,7 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 ## Branches
 
 - `main`: deploys to mervinzhao.com on every push (GitHub Actions → Pages).
-- `content-draft`: unapproved copy, not deployed. Shipped to `main` on 2026-10-21; nothing pending on it now.
+- `content-draft`: unapproved copy, not deployed. Pending as of 2026-10-22: draft Cornell and Berkeley stories (not final).
 
   To review it: `git checkout content-draft && npm run dev`. To ship it: merge into `main` and push.
 
@@ -59,12 +59,16 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 
 ## Open: content (in progress)
 
-- [ ] Stories: optional 2–4 sentences per experience entry (`story:` field in `cv.yaml`). Draft prompts:
-  - 4C Air: COVID masks with CDC/WHO; what made the biodegradable N95-level material hard.
-  - Berkeley: the PhD in one plain sentence.
-  - ARPA-E: a program area that is public now.
-  - Speculative Technologies: the synthetic-conductors idea.
-  - ASCENT: what the program office does, in plain terms.
+- [ ] Stories: a short paragraph per experience and education entry (`story:` field in `cv.yaml`, shown under the role on phone and desktop).
+  - Drafted on `content-draft`, not final: Cornell and Berkeley. Still being reworked.
+  - Still to write: 4C Air, Newlab, Speculative Technologies, ARPA-E (Booz Allen), ASCENT (RenPhil). Mervin sends raw notes for each; drafts come from those.
+  - What we're aiming for, from the review so far:
+    - First person, used sparingly ("I" to open, then "my project" or "we" for lab work).
+    - Mostly professional. Say why the work mattered in the bigger picture of the field and what made it hard, not just what was done.
+    - Don't oversell, and don't claim problems were solved.
+    - Avoid name-dropping and speculation about named people.
+  - Through-line to carry forward: molecular biology → DNA as a polymer and optical nanomaterials → solid-state physics → back to polymers at industrial scale at 4C Air (nanofibers, roll-to-roll).
+  - Berkeley runs to six sentences, long on a phone. Trim it when finalizing.
 - [ ] Confirm the three selected publications.
 - [ ] Japanese and Chinese page text; have a Japanese colleague check 趙 墨文 and its readings. The language toggle stays hidden until these exist.
 

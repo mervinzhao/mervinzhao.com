@@ -160,6 +160,25 @@ education:
     detail: Designated Emphasis in Nanoscale Science and Engineering
     start: "2012-06"
     end: "2017-10"
+    # Draft, not final.
+    story: >-
+      Nanoparticle optics led me to Xiang Zhang's group, known for plasmonics
+      and metamaterials, where I moved into solid-state physics just as
+      single-layer MoS₂ was emerging. The group's interest was valleytronics:
+      in a single layer, circularly polarized light can select electrons in one
+      of two momentum valleys, a possible new way to carry information. The
+      same single layer is also an atomically thin semiconductor, and my main
+      project took that side, growing MoS₂ directly from the edges of graphene
+      as a way around its high contact resistance with metals, which also made
+      it possible to build transistors and simple logic circuits entirely by
+      chemical growth. My last project looked for an exciton condensate, in
+      which electrons and holes in separate layers pair into a single quantum
+      state related to superconductivity. It had only been seen near absolute
+      zero in strong magnetic fields, and 2D semiconductors bind these pairs
+      tightly enough that it might survive to far higher temperatures. Building
+      the device meant stacking nine layers of 2D crystals by hand with no
+      residue or bubbles, and the fabrication alone was difficult enough that
+      we never reached the measurement.
     summary: Graduate researcher advised by Prof. Xiang Zhang.
     highlights:
       - Nanomaterial semiconductor devices and emergent material physics
@@ -171,6 +190,19 @@ education:
     degree: B.A., Chemistry
     start: "2008-08"
     end: "2012-01"
+    # Draft, not final.
+    story: >-
+      I studied chemistry as pre-med, with early research experience in
+      molecular biology, until the MCAT made clear medicine was the wrong path.
+      In Dan Luo's lab, DNA was treated as a polymer rather than a genetic
+      code, valued because its length and sequence can be set exactly, and used
+      both as a material in its own right and as a coating on gold
+      nanoparticles. I supported graduate students crystallizing these
+      DNA-capped nanoparticles, in solution and at an air–liquid interface,
+      where the main challenge was getting the particles to order rather than
+      simply aggregate. The spacing and order of the particles determine how
+      they interact with light, which makes assembly a way to tailor optical
+      response through structure.
     highlights:
       - Phi Beta Kappa Honor Society
 
