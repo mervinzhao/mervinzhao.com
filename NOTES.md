@@ -56,34 +56,11 @@ Status and to-dos for mervinzhao.com. Last updated 2026-10-21.
 - Card app icon and favicon: MZ monogram with the coral rule.
 - Leak guard covering phone patterns, Gmail, private values, forbidden terms and image metadata.
 - Landing leads with "Currently thinking about" (five topics); no About section, focus chips, conversation line or publication count.
+- App icon: now an MZ monogram outlined from Geist (`scripts/lib/icons.mjs`), also the site favicon. The installed app is named "Card" (full name "Mervin Zhao · Card", set in `cv.yaml` under `site.card_app`). Safe to install on a phone.
 
-## Open: content (in progress)
+## Open
 
-- [ ] Stories: optional 2–4 sentences per experience entry (`story:` field in `cv.yaml`). Draft prompts:
-  - 4C Air: COVID masks with CDC/WHO; what made the biodegradable N95-level material hard.
-  - Berkeley: the PhD in one plain sentence.
-  - ARPA-E: a program area that is public now.
-  - Speculative Technologies: the synthetic-conductors idea.
-  - ASCENT: what the program office does, in plain terms.
-- [ ] Confirm the three selected publications.
-- [ ] Japanese and Chinese page text; have a Japanese colleague check 趙 墨文 and its readings. The language toggle stays hidden until these exist.
-
-## Open: build
-
-- [ ] **CV PDF (Typst)** from `cv.yaml`: full detail, all publications and patents. The private build adds the private overlay. Once `cv.pdf` exists, the CV buttons appear automatically.
-- [x] App icon: now an MZ monogram outlined from Geist (`scripts/lib/icons.mjs`), also the site favicon. The installed app is named "Card" (full name "Mervin Zhao · Card", set in `cv.yaml` under `site.card_app`). Safe to install on a phone.
-- [ ] Seal (hero only now): find the original seal file (on the desktop) and redo it at full resolution.
-
-## Open: email and testing
-
-- [ ] `me@mervinzhao.com` via Cloudflare Email Routing:
-  - Enable routing, create `me@`, verify the destination inbox, and accept the MX and SPF records.
-  - If sending through Gmail: set up "Send mail as", and add `include:_spf.google.com` to SPF.
-  - Test delivery to Gmail and to a Japanese corporate address, then switch `person.email.home`.
-- [ ] Scan both card QR codes on several phones. If any struggles, raise `QUIET` in `scripts/lib/qr.mjs` to 3 or 4.
-- [ ] Import the `.vcf` into Google Contacts and check the phonetic fields and photo.
-- [ ] Optional: AAAA records for IPv6 (`2606:50c0:8000::153` through `8003::153`).
-- [ ] Optional: redirect from `mervin.ink` if purchased.
+Open items are tracked in my task list outside this repo (moved 2026-11-11).
 
 ## Gotchas
 
